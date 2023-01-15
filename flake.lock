@@ -1,0 +1,94 @@
+{
+  "nodes": {
+    "deriving-trans": {
+      "inputs": {
+        "monad-control-identity": "monad-control-identity",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1673808249,
+        "narHash": "sha256-R57epDRqtvhM4HlFOoAkJJKTxHW/oqrKg9QLmBNqR6M=",
+        "owner": "jumper149",
+        "repo": "deriving-trans",
+        "rev": "9635e5e609001afc0a783dbd80e237b1fd2be044",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jumper149",
+        "ref": "transformers-0.6",
+        "repo": "deriving-trans",
+        "type": "github"
+      }
+    },
+    "monad-control-identity": {
+      "inputs": {
+        "nixpkgs": [
+          "deriving-trans",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1673458177,
+        "narHash": "sha256-0PGZ8rZoamNKufO/K4JgqCNEJK6Wkgtsv26Ko9x5OEA=",
+        "owner": "jumper149",
+        "repo": "monad-control-identity",
+        "rev": "5e046edde9f239a487215c22a1e1a9b6651f4882",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jumper149",
+        "ref": "master",
+        "repo": "monad-control-identity",
+        "type": "github"
+      }
+    },
+    "monad-control-identity_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1673458177,
+        "narHash": "sha256-0PGZ8rZoamNKufO/K4JgqCNEJK6Wkgtsv26Ko9x5OEA=",
+        "owner": "jumper149",
+        "repo": "monad-control-identity",
+        "rev": "5e046edde9f239a487215c22a1e1a9b6651f4882",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jumper149",
+        "ref": "master",
+        "repo": "monad-control-identity",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1673822454,
+        "narHash": "sha256-K8xZf6eZt13lxvJlRtPiDOfaYnaVEMqftA5wsuJUO1U=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "01ef0a31358d8138b363c5d715fc41aef8787f71",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "deriving-trans": "deriving-trans",
+        "monad-control-identity": "monad-control-identity_2",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

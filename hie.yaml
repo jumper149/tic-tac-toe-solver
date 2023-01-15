@@ -1,0 +1,7 @@
+cradle:
+  cabal:
+    - path: "source/library"
+      component: "lib:tic-tac-toe-solver"
+
+    - path: "source/executable/Main.hs"
+      component: "tic-tac-toe-solver:exe:tic-tac-toe-solver"
