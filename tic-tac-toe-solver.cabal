@@ -152,6 +152,7 @@ library
     , language
   exposed-modules:
     , TicTacToe.Solver
+    , TicTacToe.Game
   --other-modules:
   hs-source-dirs: source/library
 
