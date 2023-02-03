@@ -1,6 +1,5 @@
 module TicTacToe.Solver where
 
-import Control.Monad.Trans.Select
 import Data.Kind
 
 type P :: Type -> Type
