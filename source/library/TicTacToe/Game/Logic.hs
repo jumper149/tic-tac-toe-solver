@@ -9,6 +9,9 @@ emptyBoard = Fields $ const Empty
 allPositions :: [Position]
 allPositions = [minBound .. maxBound]
 
+emptyPositions :: Board -> [Position]
+emptyPositions board = filter ((== Empty) . readField board) allPositions
+
 strikes :: [(Position, Position, Position)]
 strikes =
   -- horizontal

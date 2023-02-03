@@ -152,10 +152,11 @@ library
     , dependencies
     , language
   exposed-modules:
-    , TicTacToe.Solver
     , TicTacToe.Game
     , TicTacToe.Game.Draw
     , TicTacToe.Game.Logic
+    , TicTacToe.Run
+    , TicTacToe.Solver
   --other-modules:
   hs-source-dirs: source/library
 
