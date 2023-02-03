@@ -42,7 +42,7 @@ gameOver board =
           else Just $ Winner player (fst <$> ss)
  where
   isBoardFull :: Bool
-  isBoardFull = all (== Empty) $ readField board <$> allPositions
+  isBoardFull = notElem Empty $ readField board <$> allPositions
   markedStrike :: (Position, Position, Position) -> Maybe ((Position, Position, Position), (Player, Player, Player))
   markedStrike (x, y, z) = case (readField board x, readField board y, readField board z) of
     (Written a, Written b, Written c) -> Just ((x, y, z), (a, b, c))
