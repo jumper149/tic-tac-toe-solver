@@ -64,7 +64,7 @@ minmax self depth breadth player = do
   scores <-
     bagOfN (Just breadth) $ do
       board <- get
-      position <- choose (emptyPositions board)
+      position <- choose $ emptyPositions board
       let newBoard = play player position board
       case depth of
         Z -> do
@@ -74,7 +74,6 @@ minmax self depth breadth player = do
         S n -> do
           put newBoard
           score <- self n breadth (nextPlayer player)
-          put board
           pure (-score, newBoard)
   let (bestScore, bestBoard) = Data.List.maximumBy (\(s1, _) (s2, _) -> compare s1 s2) scores
   put bestBoard
