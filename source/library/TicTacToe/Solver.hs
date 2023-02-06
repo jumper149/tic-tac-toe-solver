@@ -1,7 +1,6 @@
 module TicTacToe.Solver where
 
 import Control.Applicative
-import Control.Monad
 import Control.Monad.IO.Class
 import Control.Monad.Logic.Class
 import Control.Monad.State.Class
@@ -21,7 +20,6 @@ game ::
   forall m.
   ( MonadState Board m
   , MonadLogic m
-  , MonadPlus m
   , MonadIO m
   ) =>
   (Player, Strategy m) ->
@@ -41,7 +39,6 @@ strategy ::
   forall m.
   ( MonadState Board m
   , MonadLogic m
-  , MonadPlus m
   , MonadIO m
   ) =>
   Nat ->
