@@ -1,3 +1,3 @@
 module Main (main) where
 
-import TicTacToe.Solver (main)
+import TicTacToe.Run (main)
