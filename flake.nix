@@ -19,7 +19,7 @@
       type = "github";
       owner = "jumper149";
       repo = "deriving-trans";
-      ref = "transformers-0.6";
+      ref = "logict";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -32,7 +32,7 @@
         src = nix-gitignore.gitignoreSource [] ./.;
         overlay = self: super: {
           base-orphans = pkgs.haskell.lib.dontCheck super.base-orphans;
-          deriving-trans = super.callCabal2nix "deriving-trans" deriving-trans.outPath {};
+          deriving-trans = super.callCabal2nixWithOptions "deriving-trans" deriving-trans.outPath "-f-resourcet" {};
           exceptions = super.exceptions_0_10_7;
           monad-control-identity = super.callCabal2nix "monad-control-identity" monad-control-identity.outPath {};
           mtl = super.mtl_2_3_1;

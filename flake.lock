@@ -8,16 +8,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1673808249,
-        "narHash": "sha256-R57epDRqtvhM4HlFOoAkJJKTxHW/oqrKg9QLmBNqR6M=",
+        "lastModified": 1675715874,
+        "narHash": "sha256-0zOXmHK9RcCBTHu9aRAuXyNWR/Vn9hXPoTUMnG6fA9Y=",
         "owner": "jumper149",
         "repo": "deriving-trans",
-        "rev": "9635e5e609001afc0a783dbd80e237b1fd2be044",
+        "rev": "16c82347b9feeaae5617d170d9e1e94e82648f44",
         "type": "github"
       },
       "original": {
         "owner": "jumper149",
-        "ref": "transformers-0.6",
+        "ref": "logict",
         "repo": "deriving-trans",
         "type": "github"
       }
