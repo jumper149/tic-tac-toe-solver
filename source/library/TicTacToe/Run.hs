@@ -7,4 +7,10 @@ import TicTacToe.Game.Logic
 import TicTacToe.Solver
 
 main :: IO ()
-main = evalStateT (observeT (game (X, strategy) (Circle, strategy))) emptyBoard
+main = observeT (evalStateT (game (X, strategy depth breadth) (Circle, strategy depth breadth)) emptyBoard)
+
+depth :: Nat
+depth = intToNat 6
+
+breadth :: Nat
+breadth = intToNat 9

@@ -6,6 +6,11 @@ import TicTacToe.Game
 emptyBoard :: Board
 emptyBoard = Fields $ const Empty
 
+nextPlayer :: Player -> Player
+nextPlayer = \case
+  X -> Circle
+  Circle -> X
+
 allPositions :: [Position]
 allPositions = [minBound .. maxBound]
 
@@ -32,14 +37,15 @@ play player position board = Fields $ \pos -> if pos == position then Written pl
 
 gameOver :: Board -> Maybe Result
 gameOver board =
-  if isBoardFull
-    then Just Draw
-    else case winningStrikes of
-      [] -> Nothing
-      ss@((_, player) : _) ->
-        if any (/= player) $ snd <$> ss
-          then error "Multiple players won at the same time"
-          else Just $ Winner player (fst <$> ss)
+  case winningStrikes of
+    [] ->
+      if isBoardFull
+        then Just Draw
+        else Nothing
+    ss@((_, player) : _) ->
+      if any (/= player) $ snd <$> ss
+        then error "Multiple players won at the same time"
+        else Just $ Winner player (fst <$> ss)
  where
   isBoardFull :: Bool
   isBoardFull = notElem Empty $ readField board <$> allPositions
