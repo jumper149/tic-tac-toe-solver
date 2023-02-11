@@ -17,7 +17,6 @@ type Strategy :: (Type -> Type) -> Type
 type Strategy m = Player -> m Score
 
 game ::
-  forall m.
   ( MonadState Board m
   , MonadLogic m
   , MonadIO m
@@ -36,7 +35,6 @@ game currentPlayer@(currentMark, currentStrategy) otherPlayer = do
       game otherPlayer currentPlayer
 
 strategy ::
-  forall m.
   ( MonadState Board m
   , MonadLogic m
   , MonadIO m
@@ -51,7 +49,6 @@ strategy depth breadth player = do
     Nothing -> minmax strategy depth breadth player
 
 minmax ::
-  forall m.
   ( MonadState Board m
   , MonadLogic m
   ) =>
@@ -59,9 +56,9 @@ minmax ::
   (Nat -> Nat -> Strategy m)
 minmax self depth breadth player = do
   scores <-
-    bagOfN (Just breadth) $ do
+    bagOfN breadth $ do
       board <- get
-      position <- choose $ emptyPositions board
+      position <- asum $ map pure $ emptyPositions board
       let newBoard = play player position board
       case depth of
         Z -> do
@@ -84,37 +81,21 @@ evaluateBoard player board =
         Draw -> Just -1
         Winner p _ ->
           if p == player
-            then Just 100
-            else Just -100
+            then Just 2
+            else Just -2
     Nothing -> Nothing
 
-bagOfN ::
-  MonadLogic m =>
-  Maybe Nat ->
-  m a ->
-  m [a]
+bagOfN :: MonadLogic m => Nat -> m a -> m [a]
 bagOfN n ma =
   case n of
-    Just Z -> pure []
-    _ ->
+    Z -> pure []
+    S m ->
       msplit ma >>= \case
         Nothing -> pure []
-        Just (a, ma') ->
-          let n' = case n of
-                Just (S m) -> Just m
-                Nothing -> Nothing
-           in (a :) <$> bagOfN n' ma'
-
-choose :: MonadLogic m => [a] -> m a
-choose = foldr ((<|>) . pure) empty
+        Just (a, ma') -> (a :) <$> bagOfN m ma'
 
 type Nat :: Type
 data Nat = Z | S Nat
-
-natToInt :: Nat -> Int
-natToInt = \case
-  Z -> 0
-  S n -> succ $ natToInt n
 
 intToNat :: Int -> Nat
 intToNat n =
