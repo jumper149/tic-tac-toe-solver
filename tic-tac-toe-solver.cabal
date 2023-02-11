@@ -152,6 +152,7 @@ library
     , dependencies
     , language
   exposed-modules:
+    , Control.Monad.Select.Class2
     , TicTacToe.Game
     , TicTacToe.Game.Draw
     , TicTacToe.Game.Logic
