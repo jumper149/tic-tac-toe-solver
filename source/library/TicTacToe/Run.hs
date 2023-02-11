@@ -9,9 +9,10 @@ import Data.Kind
 import TicTacToe.Game
 import TicTacToe.Game.Logic
 import TicTacToe.Solver
+import Control.Monad.Trans.Select
 
 type AppT :: (Type -> Type) -> Type -> Type
-type AppT = TransparentT .|> LogicT .|> StateT Board
+type AppT = TransparentT .|> SelectT () .|> LogicT .|> StateT Board
 
 main :: IO ()
 main = run f
@@ -19,7 +20,10 @@ main = run f
   f :: AppT IO ()
   f = game (X, strategy depth breadth) (Circle, strategy depth breadth)
   run :: AppT IO a -> IO a
-  run = runTransparentT . observeT . deComposeT . (`evalStateT` emptyBoard) . deComposeT
+  run = runTransparentT
+    . (`runSelectT` undefined) . deComposeT
+    . observeT . deComposeT
+    . (`evalStateT` emptyBoard) . deComposeT
 
 depth :: Nat
 depth = intToNat 6
