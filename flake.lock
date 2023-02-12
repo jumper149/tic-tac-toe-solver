@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1675715874,
-        "narHash": "sha256-0zOXmHK9RcCBTHu9aRAuXyNWR/Vn9hXPoTUMnG6fA9Y=",
+        "lastModified": 1676024270,
+        "narHash": "sha256-y/3KRbrGTEepyEYuSh1gK1uJIcI0u++1zaB11w7PGqc=",
         "owner": "jumper149",
         "repo": "deriving-trans",
-        "rev": "16c82347b9feeaae5617d170d9e1e94e82648f44",
+        "rev": "e9b7aa9a61b95ca8ebaf81134a86a76b2bc84394",
         "type": "github"
       },
       "original": {
