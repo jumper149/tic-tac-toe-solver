@@ -156,6 +156,7 @@ library
     , TicTacToe.Game
     , TicTacToe.Game.Draw
     , TicTacToe.Game.Logic
+    , TicTacToe.Game.Monad
     , TicTacToe.Run
     , TicTacToe.Solver
   --other-modules:

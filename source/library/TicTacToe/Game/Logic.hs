@@ -33,7 +33,12 @@ strikes =
   ]
 
 play :: Player -> Position -> Board -> Board
-play player position board = Fields $ \pos -> if pos == position then Written player else readField board pos
+play player position board = Fields $ \pos ->
+  if pos == position
+    then case readField board pos of
+      Empty -> Written player
+      Written _ -> error "Position is already occupied"
+    else readField board pos
 
 gameOver :: Board -> Maybe Result
 gameOver board =
